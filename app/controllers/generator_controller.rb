@@ -4,7 +4,7 @@ class GeneratorController < ApplicationController
   end
   
   def show
-    @link = Link.find(params[:short])
+    @link = Link.find(params[:id])
   end
 
   def new
@@ -19,6 +19,13 @@ class GeneratorController < ApplicationController
       flash[:alert] = "Une erreur s'est produite"
       render :new
     end
+  end
+
+  def redirect
+    @link = Link.find(params[:id])  
+    @original = @link.original
+    @link.update_attribute(:view, @link.view + 1)
+    redirect_to @original
   end
 
   private

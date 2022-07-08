@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2022_07_07_121237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "links", id: false, force: :cascade do |t|
-    t.string "short", limit: 6, null: false
+  create_table "links", force: :cascade do |t|
     t.string "original"
     t.integer "view", default: 0
+    t.string "short"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["short"], name: "index_links_on_short", unique: true

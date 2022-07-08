@@ -1,12 +1,10 @@
 class CreateLinks < ActiveRecord::Migration[5.2]
   def change
-    create_table :links, id: false, primary_key: :short do |t|
-      t.string :short, limit: 6, null: false
+    create_table :links do |t|
       t.string :original
       t.integer :view, default: 0
+      t.string :short, index: { unique: true}
       t.timestamps
-
-      t.index :short, unique: true
     end
   end
 end
