@@ -1,0 +1,14 @@
+<h1>Liens</h1>
+
+<div>
+    <% @links.each do |link| %>
+        <li>
+        <%= link.short %>
+        <%= link.original %>
+        <%= link.view %>
+        </li>
+    <% end %>
+    <div class="generate-button">
+        <%= link_to "Générer un lien", "/generator/new" %>
+    </div>
+</div>

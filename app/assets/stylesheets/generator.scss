@@ -1,0 +1,19 @@
+// Place all the styles related to the Generator controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.generate-button {
+    padding: 10px 20px;
+    border-radius: 2px;
+    background-color: rgb(100, 167, 200);
+    width: fit-content;
+    letter-spacing: .5px;
+    margin-top: 20px;
+    > a {
+        text-decoration: none;
+        color: white;
+    }
+    &:hover {
+        filter: brightness(110%);
+        cursor: pointer;
+    }
+}
