@@ -2,19 +2,21 @@
 
 <div>
     <% @links.each do |link| %>
-        <div>
-            <a href="/generator/<%= link.id %>">
-                <%= link.original %>
-            </a>
-        </div>
-        <div>
-            <span>Lien court :</span>
-            <a href="<%= link.id %>">
-                <%= URI.join(request.url, "/").to_s + link.id.to_s%>
-            </a>
-        </div>
-        <div>
-            <span>Trafic : <%= link.view %></span>
+        <div class="link-container">
+            <div class="link-item-original">
+                <a href="/generator/<%= link.id %>">
+                    <%= link.original %>
+                </a>
+            </div>
+            <div class="link-item-short">
+                <span>Lien court :</span>
+                <a href="<%= link.short %>">
+                    <%= URI.join(request.url, "/").to_s + link.short.to_s%>
+                </a>
+            </div>
+            <div class="link-item-view">
+                <span>Vues :<%= link.view %></span>
+            </div>
         </div>
     <% end %>
     <div class="generate-button">

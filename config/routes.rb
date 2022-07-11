@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get "/generator/new", to:"generator#new"
   get "/generator/id", to:"generator#show"
   post "link", to: "generator#create"
-  get ":id", to: "generator#redirect"
+  get ":short", to: "generator#redirect"
   resources :generator
 end

@@ -12,7 +12,7 @@ class GeneratorController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = Link.new(link_params.merge(short: link_short))
     if @link.save
       redirect_to generator_path, notice: "Votre lien a été généré avec succès !"
     else
@@ -22,10 +22,19 @@ class GeneratorController < ApplicationController
   end
 
   def redirect
-    @link = Link.find(params[:id])  
+    @link = Link.find_by(short: params[:short])  
     @original = @link.original
     @link.update_attribute(:view, @link.view + 1)
     redirect_to @original
+  end
+
+  def link_short
+    short_unique = SecureRandom.alphanumeric(6)
+    if Link.where(short: short_unique).exists?
+      short_unique = short_unique + SecureRandom.alphanumeric(3)
+    else
+      short_unique
+    end
   end
 
   private
