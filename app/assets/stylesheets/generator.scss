@@ -1,13 +1,91 @@
 // Place all the styles related to the Generator controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+    margin: 0;
+}
+
+// New
+.new-title {
+    margin: 0;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 35px;
+        bottom: 0;
+        left: -3px;
+        background-color: white;
+    }
+}
+
+.new-link-container {
+    height: 100vh;
+    background: #B993D6; 
+    background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  
+    background: linear-gradient(to right, #8CA6DB, #B993D6);
+    form {
+        display: flex;
+        justify-content: space-between;
+    }
+    input {
+        min-height: 30px;
+        border-radius: 6px;
+        border: 0;
+        padding: 2px 8px;
+    }
+    input[type=submit] {
+        background-color: #aac4f8;
+        padding: 10px 8px;
+        &:hover {
+            cursor: pointer;
+            filter: brightness(110%);
+        }
+    }
+    input[type=url] {
+        min-width: 155px;
+    }
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.index-container {
+    padding: 0px 5px;
+}
+
 .link-container {
     display: flex;
+    flex-direction: column;
     padding: 10px 5px;
     margin: 10px 0;
     gap: 10px;
     border-radius: 6px;
     background-color: rgb(250, 250, 250);
+    a {
+        color: grey;
+        text-decoration: none;
+        &:hover {
+            filter: brightness(70%);
+            text-decoration: underline;
+        }
+    }
+}
+
+.link-info-container {
+    display: flex;
+    gap: 10px;
 }
 
 .generate-button {
@@ -16,7 +94,7 @@
     background-color: rgb(100, 167, 200);
     width: fit-content;
     letter-spacing: .5px;
-    margin-top: 20px;
+    margin: 20px 0;
     > a {
         text-decoration: none;
         color: white;

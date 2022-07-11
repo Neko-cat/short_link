@@ -1,10 +1,12 @@
-<h1>Générer un lien court</h1>
-  
-<%= form_with model: @link, url: link_path, method: :post do |form| %>
-  <%= form.label :original, "Votre lien:" %>
-  <%= form.url_field :original %>
-  <%= form.submit "Générer" %>
-<% end %>
+<div class="new-link-container">
+<div class="form-container">
+  <h1 class="new-title">Générer un lien court</h1>
+  <%= form_with model: @link, url: link_path, method: :post do |form| %>
+    <%= form.url_field :original, placeholder:"Votre lien" %>
+    <%= form.submit "Générer" %>
+  <% end %>
+  </div>
+</div>
 
 
 

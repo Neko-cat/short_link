@@ -1,25 +1,31 @@
-<h1>Liens</h1>
+<div class="index-container">
+    <h1>Liens</h1>
 
-<div>
-    <% @links.each do |link| %>
-        <div class="link-container">
-            <div class="link-item-original">
-                <a href="/generator/<%= link.id %>">
-                    <%= link.original %>
-                </a>
-            </div>
-            <div class="link-item-short">
-                <span>Lien court :</span>
-                <a href="<%= link.short %>">
-                    <%= URI.join(request.url, "/").to_s + link.short.to_s%>
-                </a>
-            </div>
-            <div class="link-item-view">
-                <span>Vues :<%= link.view %></span>
-            </div>
-        </div>
-    <% end %>
     <div class="generate-button">
         <%= link_to "Générer un lien", "/generator/new" %>
+    </div>
+
+    <div>
+        <% @links.each do |link| %>
+            <div class="link-container">
+                <div class="link-item-original">
+                    <span>Lien original :</span>
+                    <a href="/generator/<%= link.id %>">
+                        <%= link.original %>
+                    </a>
+                </div>
+                <div class="link-info-container">
+                    <div class="link-item-short">
+                        <span>Lien court :</span>
+                        <a href="<%= link.short %>">
+                            <%= URI.join(request.url, "/").to_s + link.short.to_s%>
+                        </a>
+                    </div>
+                    <div class="link-item-view">
+                        <span>Vues : <%= link.view %></span>
+                    </div>
+                </div>
+            </div>
+        <% end %>
     </div>
 </div>

@@ -30,11 +30,11 @@ class GeneratorController < ApplicationController
 
   def link_short
     short_unique = SecureRandom.alphanumeric(6)
-    if Link.where(short: short_unique).exists?
-      short_unique = short_unique + SecureRandom.alphanumeric(3)
-    else
-      short_unique
+    while Link.where(short: short_unique).exists? == true do
+      short_unique = SecureRandom.alphanumeric(6)
+      return short_unique
     end
+    return short_unique
   end
 
   private
