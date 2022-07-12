@@ -32,7 +32,6 @@ class GeneratorController < ApplicationController
     short_unique = SecureRandom.alphanumeric(6)
     while Link.where(short: short_unique).exists? == true do
       short_unique = SecureRandom.alphanumeric(6)
-      return short_unique
     end
     return short_unique
   end
