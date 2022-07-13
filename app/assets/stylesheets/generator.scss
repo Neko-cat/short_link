@@ -8,10 +8,10 @@ html, body {
 // Alert
 .alert {
     position: fixed;
-    bottom: 3%;
+    top: 10%;
     left: 50%;
     animation: hide-alert 3s forwards;
-    transform: translate(-50%, 3%);
+    transform: translate(-50%, 10%);
     text-align: center;
     width: fit-content;
     color: white;
@@ -26,7 +26,8 @@ html, body {
 }
 
 @keyframes hide-alert {
-    0% { opacity: 100%; }
+    0% { opacity: 0%; }
+    15% { opacity: 100%; }
     90% { opacity: 100%; }
     100% { opacity: 0%; }
 }

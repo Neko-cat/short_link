@@ -21,9 +21,7 @@
                 <div class="link-info-container">
                     <div class="link-item-short">
                         <span>Lien court :</span>
-                        <a href="<%= link.short %>">
-                            <%= URI.join(request.url, "/").to_s + link.short.to_s%>
-                        </a>
+                        <%= link_to request.url + link.short, request.url + link.short, data: { turbolinks: false } %>
                     </div>
                     <div class="link-item-view">
                         <span>Vues : <%= link.view %></span>
