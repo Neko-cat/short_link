@@ -23,7 +23,7 @@ class GeneratorController < ApplicationController
 
   def redirect
     @link = Link.find_by(short: params[:short])
-    Rails.cache.fetch(@link.short) do  
+    Rails.cache.fetch([self, :short]) do
       @original = @link.original
     end
     @link.update_attribute(:view, @link.view + 1)
