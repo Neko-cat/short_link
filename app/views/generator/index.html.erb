@@ -5,8 +5,12 @@
         <%= link_to "Générer un lien", "/generator/new" %>
     </div>
 
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
     <div>
-        <% @links.each do |link| %>
+        <% @links.order("created_at DESC").each do |link| %>
             <div class="link-container">
                 <div class="link-item-original">
                     <span>Lien original :</span>

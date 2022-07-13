@@ -14,9 +14,10 @@ class GeneratorController < ApplicationController
   def create
     @link = Link.new(link_params.merge(short: link_short))
     if @link.save
-      redirect_to generator_path, notice: "Votre lien a été généré avec succès !"
+      flash[:success] = "Votre lien a été généré avec succès !"
+      redirect_to generator_path
     else
-      flash[:alert] = "Une erreur s'est produite"
+      flash[:error] = "Une erreur s'est produite"
       render :new
     end
   end

@@ -5,6 +5,32 @@ html, body {
     margin: 0;
 }
 
+// Alert
+.alert {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    animation: hide-alert 3s forwards;
+    transform: translate(-50%, 3%);
+    text-align: center;
+    width: fit-content;
+    color: white;
+    padding: 8px 30px;
+    border-radius: 2px;
+    &.alert-success {
+        background-color: #4eb86d;
+    }
+    &.alert-error {
+        background-color: #d04141;
+    }
+}
+
+@keyframes hide-alert {
+    0% { opacity: 100%; }
+    90% { opacity: 100%; }
+    100% { opacity: 0%; }
+}
+
 // New
 .new-title {
     margin: 0;
