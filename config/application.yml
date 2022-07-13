@@ -11,6 +11,6 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 development:
-  MEM_CACHE_STORE: "localhost:3002"
+  MEM_CACHE_STORE: "memcached:3002"
 production:
   MEM_CACHE_STORE: "localhost:3002"
