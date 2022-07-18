@@ -1,0 +1,9 @@
+<h1>Bienvenue</h1>
+
+<% if logged_in? %>
+    <h2>Déjà connecté: <%= current_user.username %></h2>
+    <%= button_to "Se déconnecter", "/logout", method: :delete %>
+<%else%>
+    <%= button_to "Se connecter", "/login", method: :get %>
+    <%= button_to "S'inscrire", "/users/new", method: :get %>
+<%end%>

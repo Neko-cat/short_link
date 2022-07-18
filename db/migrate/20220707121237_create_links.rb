@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration[5.2]
       t.string :original
       t.integer :view, default: 0
       t.string :short, index: { unique: true}
+      t.integer :user_id
       t.timestamps
     end
   end

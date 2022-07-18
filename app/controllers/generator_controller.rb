@@ -12,7 +12,7 @@ class GeneratorController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params.merge(short: link_short))
+    @link = Link.new(link_params.merge(short: link_short, user_id: current_user.id))
     if @link.save
       flash[:success] = "Votre lien a été généré avec succès !"
       redirect_to action: "index"
