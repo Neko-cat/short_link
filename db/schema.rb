@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_07_18_120514) do
     t.string "original"
     t.integer "view", default: 0
     t.string "short"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["short"], name: "index_links_on_short", unique: true

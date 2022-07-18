@@ -1,5 +1,5 @@
 <div class="index-container">
-    <h1>Liens de l'utilisateur</h1>
+    <h1><%= current_user.username %>, voici votre liste de liens </h1>
 
     <div class="generate-button">
         <%= link_to "Générer un lien", "/generator/new" %>
@@ -24,10 +24,13 @@
                         <%= link_to request.url + link.short, request.url + link.short, data: { turbolinks: false } %>
                     </div>
                     <div class="link-item-view">
-                        <span>Vues : <%= link.view %></span>
+                        <span><%= link.view > 1 ? "Vues: " : "Vue: " %><%= link.view %></span>
                     </div>
                 </div>
             </div>
+        <% end %>
+        <% if @links.length == 0 %>
+            <div>Votre liste est vide.</div>
         <% end %>
     </div>
 </div>

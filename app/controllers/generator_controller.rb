@@ -1,6 +1,15 @@
 class GeneratorController < ApplicationController
+  before_action :logged_user
+
+  def logged_user
+    unless logged_in?
+      flash[:error] = "Vous devez vous connecter"
+      redirect_to "/welcome"
+    end
+  end
+
   def index
-    @links = Link.all
+    @links = Link.where(user_id: current_user.id)
   end
   
   def show

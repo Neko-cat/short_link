@@ -1,5 +1,9 @@
 <h1>Bienvenue</h1>
 
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <% if logged_in? %>
     <h2>Déjà connecté: <%= current_user.username %></h2>
     <%= button_to "Se déconnecter", "/logout", method: :delete %>
