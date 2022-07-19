@@ -12,13 +12,18 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get login" do
-    get sessions_login_url
+    get "/login"
     assert_response :success
   end
 
   test "should get welcome" do
-    get sessions_welcom_url
+    get "/welcome"
     assert_response :success
+  end
+
+  test "index button" do
+    get "/welcome"
+    assert_select "h1", text: "Bienvenuee"
   end
 
 end
