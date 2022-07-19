@@ -18,6 +18,9 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.cache_store = :mem_cache_store, ENV["MEM_CACHE_STORE"]
 
+  # CSRF Countermeasures
+  config.action_controller.default_protect_from_forgery = true
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
