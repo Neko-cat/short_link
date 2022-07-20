@@ -3,18 +3,23 @@ require 'test_helper'
 class GeneratorControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
+    @link = links(:one)
   end
 
   test "should redirect" do
-    get "/generator/index"
+    get root_path
     assert_response :redirect
   end
 
-  test "should user login" do
-    post "/login", params: {
-      username: @user.username,
-      password: @user.password_digest,
-    }
-    assert true
+  test "should get index" do
+    sign_in @user
+    get root_path
+    assert_response :success
+  end
+
+  test "should link exist" do
+    sign_in @user
+    get "/generator/" + @link.id.to_s
+    assert_response :success
   end
 end

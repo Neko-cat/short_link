@@ -1,14 +1,8 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get sessions_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get sessions_create_url
-    assert_response :success
+  setup do
+    @user = users(:one)
   end
 
   test "should get login" do
@@ -21,9 +15,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "index button" do
+  test "should connect" do
+    sign_in @user
     get "/welcome"
-    assert_select "h1", text: "Bienvenue"
+    assert_select "h2", text: "Déjà connecté: " + @user.username
   end
-
 end
