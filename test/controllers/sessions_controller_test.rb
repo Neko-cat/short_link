@@ -23,7 +23,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "index button" do
     get "/welcome"
-    assert_select "h1", text: "Bienvenuee"
+    assert_select "h1", text: "Bienvenue"
   end
 
 end

@@ -4,7 +4,11 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  original: "http://lien.com"
+  view: 0
+  short: <%= SecureRandom.alphanumeric(6) %>
+  user_id: 1
 # column: value
 #
 two: {}
