@@ -6,7 +6,7 @@ class GeneratorControllerTest < ActionDispatch::IntegrationTest
     @link = links(:one)
   end
 
-  test "should redirect" do
+  test "should redirect index" do
     get root_path
     assert_response :redirect
   end
@@ -22,4 +22,10 @@ class GeneratorControllerTest < ActionDispatch::IntegrationTest
     get "/generator/" + @link.id.to_s
     assert_response :success
   end
+
+  test "should link redirect" do
+    get "/generator/" + @link.id.to_s
+    assert_response :redirect
+  end
+
 end

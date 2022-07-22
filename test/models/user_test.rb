@@ -11,7 +11,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should user create" do
-    user = User.new(username: @user.username, password: @user.password_digest)
+    user = User.new(username: @user.username, password: @user.password)
+    user.save
     username = user.username
     assert_equal "UserOne", username, "Username not correct"
   end
