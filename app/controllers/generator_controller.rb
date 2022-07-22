@@ -36,7 +36,13 @@ class GeneratorController < ApplicationController
       @link = Link.find_by(short: params[:short])
       @original = @link.original
     end
-    @link.update_column(:view, @link.view + 1)
+
+    if @link.get_link(@link.short)
+      @link.increment_views(@link.short)
+    else
+      @link.set_link(@link.short, @link.view)
+    end
+
     redirect_to @original
   end
 

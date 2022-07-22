@@ -12,5 +12,8 @@
 
 development:
   MEM_CACHE_STORE: "memcached:11211"
+  REDIS_DB: "0"
+  REDIS_URL: "redis://redis:6379/0"
+  REDIS_PORT: "6379"
 production:
   MEM_CACHE_STORE: "localhost:3002"
