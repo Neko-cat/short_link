@@ -16,10 +16,9 @@ class LinkTest < ActiveSupport::TestCase
     assert_equal 0, view, "View isn't equal to zero"
   end
 
-  test "should short length equal to six" do
-    link = Link.new(short: @link.short, user_id: @link.user_id)
-    short = link.short
-    assert_not_equal 7, short.length, "Length isn't equal to six"
+  test "should return random six length string" do
+    short = Link.generate_unique_short
+    assert_equal 6, short.length, "Length isn't equal to six"
   end
 
 end
