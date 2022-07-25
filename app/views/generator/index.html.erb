@@ -1,7 +1,9 @@
 <div class="index-container">
     <h1><%= current_user.username %>, voici votre liste de liens </h1>
 
-    <%= button_to "Se déconnecter", "/logout", method: :delete %>
+    <div class="logout-button">
+        <%= button_to "Se déconnecter", "/logout", method: :delete %>
+    </div>
 
     <div class="generate-button">
         <%= link_to "Générer un lien", "/generator/new" %>
