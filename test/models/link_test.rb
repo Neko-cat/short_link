@@ -1,11 +1,25 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @link = links(:one)
+  end
+
   test "should not save without original" do
     link = Link.new
-    assert_not link.save
+    assert_not link.save, "Original link is missing"
   end
+
+  test "should view equal to zero" do
+    link = Link.new
+    view = link.view
+    assert_equal 0, view, "View isn't equal to zero"
+  end
+
+  test "should short length equal to six" do
+    link = Link.new(short: @link.short, user_id: @link.user_id)
+    short = link.short
+    assert_not_equal 7, short.length, "Length isn't equal to six"
+  end
+
 end
