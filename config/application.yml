@@ -12,8 +12,6 @@
 
 development:
   MEM_CACHE_STORE: "memcached:11211"
-  REDIS_DB: "0"
   REDIS_URL: "redis://redis:6379/0"
-  REDIS_PORT: "6379"
 production:
-  MEM_CACHE_STORE: "localhost:3002"
+  REDIS_URL: "redis://:p80d046205241fb5352b10b5a9e0af59887cc37881de7dcaf03bcd41f43ef4f7e@ec2-63-32-141-64.eu-west-1.compute.amazonaws.com:26259"
