@@ -6,7 +6,7 @@
 #
 one:
   original: "http://lien.com"
-  short: <%= SecureRandom.alphanumeric(6) %>
+  short: "<%= SecureRandom.alphanumeric(6) %>"
   user_id: 1
 # column: value
 #

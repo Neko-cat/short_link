@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
+  include RedisConcern
+
   setup do
     @link = links(:one)
   end
@@ -19,6 +21,21 @@ class LinkTest < ActiveSupport::TestCase
   test "should return random six length string" do
     short = Link.generate_unique_short
     assert_equal 6, short.length, "Length isn't equal to six"
+  end
+
+  test "should redis get link" do
+    link = Link.find_by(short: @link.short)
+    setLink = link.set_link(link.short, link.view)
+    getLink = link.get_link(link.short)
+    assert_equal "1", getLink
+  end
+
+  test "should redis increment view" do
+    link = Link.find_by(short: @link.short)
+    setLink = link.set_link(link.short, link.view)
+    incrLink = link.increment_views(link.short)
+    getLink = link.get_link(link.short)
+    assert_equal "2", getLink
   end
 
 end
